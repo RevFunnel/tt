@@ -1,0 +1,80 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+header.info {
+  background: #33b969 none repeat scroll 0 0;
+  padding: 20px;
+}
+
+.wufoo .info h2{
+  color: #fff!important;
+   font-weight: bold;
+   font-size:28px
+}
+
+.wufoo .info div{
+color: #fff!important;
+font-size: 15px!important;
+}
+
+form ul{ padding:10px 20px!important;}
+
+.notranslate.selectOne,  {
+  color: #0d0d0d;
+  font-family: "Open Sans";
+  font-size: 14px;
+}
+li label.desc {
+  color: #000 !important;
+  font-family: "Open Sans",sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+}
+
+.notranslate select.select {
+  border: 1px solid #c2c2c2;
+  height: 40px;
+  padding: 1px 0 0;
+  font-size: 13px !important;
+  border-radius: 3px;
+}
+
+.field.text {
+  border: 1px solid #c2c2c2;
+  height: 37px;
+  border-radius: 3px;
+}
+
+.btTxt.submit {
+  background: #ff660b none repeat scroll 0 0;
+  border: 0 none;
+  color: #fff;
+  font-family: "Open Sans",sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  height: 50px;
+  text-transform: uppercase;
+   padding:0 20px;
+   width: 100%;
+}
+
+#previousPageButton, #saveForm{
+  background: #ff660b none repeat scroll 0 0 ;
+  border: 0 none ;
+  color: #fff ;
+  font-family: "Open Sans",sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  height: 50px;
+  text-transform: uppercase;
+   padding:0 20px;
+   width: auto;
+   text-decoration: none;
+}
+span.marker{ display:none!important}
+form li{ padding:6px 1% 2px}
+form li.focused{ background:none!important}
+.safari select.select{font-size: 13px !important;}
+#errorLi, .error-container{ display:none !important}
+form li.error p.error{ display:none!important}
+
+select:focus, input:focus{ outline:none !important}
