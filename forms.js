@@ -16,76 +16,6 @@ var teletracForms = {
           else
             return decodeURIComponent(results[1].replace(/\+/g, " "));
     },
-    initPopups: function(formLinkClass)
-    {
-        var popupWidth = "430px";
-        var popupHeight = teletracForms.showInterestSelection ? "660px" : "570px";
-        var $link = $("." + formLinkClass);
-        var $form = $("#form_" + formLinkClass);
-        
-        if($form.attr("data-customheight") != null)
-        {
-            popupHeight = $form.attr("data-customheight");
-            if(popupHeight.indexOf("px") < 0)
-            {
-                popupHeight = popupHeight + "px";
-            }
-        }
-        
-        
-        if(teletracForms.displayFormat != "desktop")
-        {
-            popupWidth = ($(window).width() - 10);
-            
-            var heightAttr = $form.attr('data-colorbox-height');
-            
-            if (typeof heightAttr !== typeof undefined && heightAttr !== false) {
-                if(heightAttr != "")
-                {
-                    popupHeight = teletracForms.showInterestSelection ? (heightAttr + 90) + "px"  : heightAttr + "px";
-                }else
-                {
-                    popupHeight = teletracForms.showInterestSelection ? "900px" : "810px";
-                }
-            }
-            else
-            {
-                popupHeight = teletracForms.showInterestSelection ? "900px" : "810px";
-            }
-        }
-        
-       $link.colorbox({width:popupWidth,height:popupHeight, scrolling:false, inline:true, href:"#form_" + formLinkClass, onOpen: function(){
-          var $link = $(this);
-          var $formContainer = $("#form_" + formLinkClass);
-          $formContainer.find(".interest-selection input").removeAttr("checked").prop("checked", false);
-
-           var defaultInterestValue = $formContainer.find("input[name='00N60000002FMQr']").val();
-           var defaultInterestCheckbox = $formContainer.find(".interest-selection input[value='"+ defaultInterestValue +"']");
-           if(defaultInterestCheckbox != null && defaultInterestCheckbox.length > 0)
-           {
-               $(defaultInterestCheckbox).attr("checked","checked");
-               $(defaultInterestCheckbox).prop("checked",true);
-               $(defaultInterestCheckbox).change();
-           }    
-           
-           if($link.hasClass("cta-download"))
-           {
-               $formContainer.find("#formTitle").text($link.attr("data-title"));
-               $formContainer.find("input[name='00N32000002znCp']").val($link.attr("data-name"));
-               $formContainer.find("input[name='00N32000002znCk']").val($link.attr("data-name"));
-               $formContainer.find("input[name='download-group']").val($link.attr("data-group"));
-               var d = new Date();
-               var minutes = 5;
-               teletracForms.setCookie("ttd-" + $link.attr("data-group"),  d.getMilliseconds(), new Date(d.getTime() + (minutes * 60000)));
-           }
-       }});
-       
-       
-    },
-    initLegacyForms: function()
-    {
-        $(".green-txt-btn.demo.cboxElement").addClass("cta-demo").removeAttr("onclick");
-    },
     getOptimizelyVal: function()
     {
         var optVal = "";
@@ -372,38 +302,7 @@ teletracForms.salesforce.init = function()
         if (fleetType != null) {
            $("input[name='00N60000002dF3a']").val(decodeURIComponent(fleetType));
         }
-        var ipAddress = "";
-        $.ajax({
-          url: "http://origin.www.teletrac.com/admin/services/teletrac/1.0.0.0/getipjsonp",
-                dataType: "jsonp",
-                type: "GET",
-                async: false,
-                success: function (d) {
-                    ipAddress = d.ipAddress;
-                    $("input[name='00N60000002FMKZ']").val(d.ipAddress);
-                }
-        });
-        
-        /* interest check scripts removed, value now set in hidden field
-        $("input[name='00N60000002dF3Q']").click(function() {
-          if ($(this).val() == "MarketUpdates") {
-            if ($(this).is(":checked")) {
-              $("input[name='00N60000002dF3L']").val(0);
-            }
-            else {
-              $("input[name='00N60000002dF3L']").val(1);
-            }
-          }
-          
-          if($(this).is(":checked"))
-          {
-              $(this).parent().children("input[name='00N60000002FMQr'][value='"+ $(this).val() +"']").attr("checked",true);
-          }
-          else
-          {
-              $(this).parent().children("input[name='00N60000002FMQr'][value='"+ $(this).val() +"']").removeAttr("checked");
-          }
-        });*/
+
         var ukPattern = "-uk";
         try
         {
