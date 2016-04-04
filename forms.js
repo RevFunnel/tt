@@ -112,8 +112,8 @@ $(function(){
     /***************** Get and Save Tracking Data to Cookies *****************/
     teletracForms.setCookies();
     
-    /***************** Custom Scripts for Legacy Content *****************/
-    teletracForms.initLegacyForms();
+    /***************** Custom Scripts for Legacy Content ****************
+    teletracForms.initLegacyForms();*/
     
     /***************** Connect Salesforce Forms with Links *****************/
     teletracForms.salesforce.init();
